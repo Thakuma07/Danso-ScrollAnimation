@@ -479,46 +479,4 @@ This project is currently under development. Contributions are welcome once the 
 6. Push to the branch: `git push origin feature/amazing-feature`
 7. Open a Pull Request
 
----
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 👤 Author
-
-**Thakuma** | Experiment 0493
-
-- Portfolio: [Your Portfolio URL]
-- GitHub: [@YourGitHub]
-- Twitter: [@YourTwitter]
-
----
-
-## 🙏 Acknowledgments
-
-- **GSAP (GreenSock)**: For the incredible animation library
-- **Ionicons**: For clean, modern icon design
-- **DM Sans & DM Mono**: For beautiful, open-source typography
-- Inspired by modern e-commerce carousel patterns
-
----
-
-## 📞 Support
-
-For questions, issues, or feature requests:
-- Open an issue on GitHub
-- Contact: [your-email@example.com]
-- Documentation: [Link to docs when available]
-
----
-
-<div align="center">
-
-**Built with ❤️ using GSAP and vanilla JavaScript**
-
-[⬆ Back to Top](#danso-infinite-product-slider-)
-
-</div>

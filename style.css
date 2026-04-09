@@ -220,7 +220,7 @@ p{
     height: 75%;
     padding: 2rem 1rem;
     border-radius: 0.5rem;
-    background-color: rdgb(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;

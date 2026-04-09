@@ -1,4 +1,4 @@
-
+import gsap from "gsap";
 import products from "./products.js";
 
 const productsContainer = document.querySelector(".products");
@@ -113,7 +113,7 @@ function movePrev() {
     removeSlideItem(BUFFER_SIZE);
     slideItems.forEach((item) => {
         item.relativeIndex++;
-        ieym.element.dataset.relativeIndex = item.relativeIndex;
+        item.element.dataset.relativeIndex = item.relativeIndex;
     });
     addSlideItems(-BUFFER_SIZE);
     updateSliderPosition();
@@ -141,7 +141,7 @@ function animateSlideItems(hide = false) {
     slideItems.forEach((item) => {
         const absIndex = Math.abs(item.relativeIndex);
         if (absIndex === 1 || absIndex === 2) {
-            gsap.to(item.elemnt, {
+            gsap.to(item.element, {
                 x: hide
                     ? item.relativeIndex * slideWidth * 1.5
                     : item.relativeIndex * slideWidth,
@@ -191,4 +191,52 @@ function animateSlideItemsControllerTransition(opening = false) {
         stagger: opening ? 0.1 : 0.05,
         delay: opening ? 0.2 : 0,
     });
-}  
+}
+
+for (let i = -BUFFER_SIZE; i <= BUFFER_SIZE; i++) {
+    addSlideItems(i);
+}
+
+nextBtn.addEventListener("click", moveNext);
+prevBtn.addEventListener("click", movePrev);
+
+controllerInner.addEventListener("click", () => {
+    if (isPreviewAnimating) return;
+
+    isPreviewAnimating = true;
+    isPreviewOpen = !isPreviewOpen;
+
+    if (isPreviewOpen) {
+        animateSlideItems(true);
+        animateSlideItemsControllerTransition(true);
+        gsap.to(productPreview, {
+            y: "0%",
+            duration: 0.75,
+            ease: "power3.inOut",
+            onComplete: () => (isPreviewAnimating = false),
+        });
+        gsap.to(productBanner, {
+            opacity: 1,
+            duration: 0.75,
+            ease: "power3.inOut",
+        });
+    } else {
+        animateSlideItems(false);
+        animateSlideItemsControllerTransition(false);
+        gsap.to(productPreview, {
+            y: "100%",
+            duration: 0.75,
+            ease: "power3.inOut",
+            onComplete: () => (isPreviewAnimating = false),
+        });
+        gsap.to(productBanner, {
+            opacity: 0,
+            duration: 0.75,
+            ease: "power3.inOut",
+        });
+    }
+    updateButtonStates();
+});
+
+updateProductName();
+updatePreviewContent();

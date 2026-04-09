@@ -1,0 +1,26 @@
+{
+  "name": "danso-infinite-product-slider",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An immersive, infinite product carousel with smooth GSAP animations, dynamic product previews, and a unique circular navigation controller. This project showcases modern web animation techniques with a focus on fluid user interactions and visual appeal.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thakuma07/DansoInfinite-ScrollAnimation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thakuma07/DansoInfinite-ScrollAnimation/issues"
+  },
+  "homepage": "https://github.com/Thakuma07/DansoInfinite-ScrollAnimation#readme",
+  "dependencies": {
+    "gsap": "^3.14.2",
+    "vite": "^8.0.8"
+  }
+}

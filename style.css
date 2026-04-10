@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: "DM Sans";
-    src: url(/fonts/DMSans-VariableFont_opsz\,wght.ttf);
+    src: url("/fonts/DMSans-VariableFont_opsz,wght.ttf");
 }
 
 :root {
@@ -90,11 +90,16 @@ p {
 .products li img {
     width: 250px;
     height: 250px;
+    transition: filter 0.3s ease;
+}
+
+.products li:hover img {
+    filter: brightness(1.1);
 }
 
 .controller {
-    position: relative;
-    bottom: 2rem;
+    position: absolute;
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     width: 11rem;
@@ -238,6 +243,12 @@ p {
     font-size: 0.95rem;
 }
 
+.product-preview-price p {
+    font-family: "DM Mono";
+    color: var(--base-200);
+    font-size: 0.85rem;
+}
+
 .product-preview-tag {
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
@@ -282,6 +293,6 @@ p {
 
 @media (max-width: 1000px) {
     .product-preview {
-        width: calc(100% -2rem);
+        width: calc(100% - 2rem);
     }
 }

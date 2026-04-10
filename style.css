@@ -283,8 +283,6 @@ p{
 @media (max-width: 1000px) {
     .product-preview {
         width: calc(100% -2rem);
-    }
-
-    
+    }    
 }
 

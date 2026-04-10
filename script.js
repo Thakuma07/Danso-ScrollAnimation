@@ -25,7 +25,7 @@ const BUFFER_SIZE = 5;
 const spacing = 0.375;
 const slideWidth = spacing * 1000;
 
-function addSlideItems(relativeIndex) {
+function addSlideItem(relativeIndex) {
     const productIndex =
         (((currentProductIndex + relativeIndex) % products.length) +
             products.length) %
@@ -100,7 +100,7 @@ function moveNext() {
         item.relativeIndex--;
         item.element.dataset.relativeIndex = item.relativeIndex;
     });
-    addSlideItems(BUFFER_SIZE);
+    addSlideItem(BUFFER_SIZE);
     updateSliderPosition();
     updateProductName();
     updatePreviewContent();
@@ -115,7 +115,7 @@ function movePrev() {
         item.relativeIndex++;
         item.element.dataset.relativeIndex = item.relativeIndex;
     });
-    addSlideItems(-BUFFER_SIZE);
+    addSlideItem(-BUFFER_SIZE);
     updateSliderPosition();
     updateProductName();
     updatePreviewContent();
@@ -135,7 +135,7 @@ function getActiveSlide() {
     return slideItems.find((item) => item.relativeIndex === 0);
 }
 
-function animateSlideItems(hide = false) {
+function animateSideItems(hide = false) {
     const activeSlide = getActiveSlide();
 
     slideItems.forEach((item) => {
@@ -162,7 +162,7 @@ function animateSlideItems(hide = false) {
     }
 }
 
-function animateSlideItemsControllerTransition(opening = false) {
+function animateControllerTransition(opening = false) {
     const navEls = [".controller-label p", ".nav-btn" ];
 
     gsap.to(navEls, {
@@ -193,50 +193,48 @@ function animateSlideItemsControllerTransition(opening = false) {
     });
 }
 
-for (let i = -BUFFER_SIZE; i <= BUFFER_SIZE; i++) {
-    addSlideItems(i);
-}
-
-nextBtn.addEventListener("click", moveNext);
-prevBtn.addEventListener("click", movePrev);
-
-controllerInner.addEventListener("click", () => {
+function togglePreview() {
     if (isPreviewAnimating) return;
 
     isPreviewAnimating = true;
-    isPreviewOpen = !isPreviewOpen;
-
-    if (isPreviewOpen) {
-        animateSlideItems(true);
-        animateSlideItemsControllerTransition(true);
-        gsap.to(productPreview, {
-            y: "0%",
-            duration: 0.75,
-            ease: "power3.inOut",
-            onComplete: () => (isPreviewAnimating = false),
-        });
-        gsap.to(productBanner, {
-            opacity: 1,
-            duration: 0.75,
-            ease: "power3.inOut",
-        });
-    } else {
-        animateSlideItems(false);
-        animateSlideItemsControllerTransition(false);
-        gsap.to(productPreview, {
-            y: "100%",
-            duration: 0.75,
-            ease: "power3.inOut",
-            onComplete: () => (isPreviewAnimating = false),
-        });
-        gsap.to(productBanner, {
-            opacity: 0,
-            duration: 0.75,
-            ease: "power3.inOut",
-        });
-    }
     updateButtonStates();
-});
 
-updateProductName();
-updatePreviewContent();
+    if (!isPreviewOpen) updatePreviewContent();
+
+    gsap.to(productPreview, {
+        y: isPreviewOpen ? "100%" : "-50%",
+        duration: 0.75,
+        ease: "power3.inOut", 
+    });
+    gsap.to(productBanner, {
+        opacity: isPreviewOpen ? 0 : 1,
+        duration: 0.4,
+        delay: isPreviewOpen ? 0 : 0.25,
+        ease: "power3.inOut",
+    });
+
+    animateSideItems(!isPreviewOpen);
+    animateControllerTransition(!isPreviewOpen);
+
+    setTimeout(() => {
+        isPreviewAnimating = false;
+        isPreviewOpen = !isPreviewOpen;
+        updateButtonStates();
+    }, 600);
+}
+
+function initializeSlider() {
+    for (let i = -BUFFER_SIZE; i <= BUFFER_SIZE; i++) {
+        addSlideItem(i);
+    }
+    updateSliderPosition();
+    updateProductName();
+    updatePreviewContent();
+    updateButtonStates();
+}
+
+prevBtn.addEventListener("click", movePrev);
+nextBtn.addEventListener("click", moveNext);
+controllerInner.addEventListener("click", togglePreview);
+
+initializeSlider();

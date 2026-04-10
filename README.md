@@ -14,10 +14,10 @@ An immersive, high-performance infinite product carousel built with **GSAP**, fe
 - 🎡 **Infinite Carousel**: Seamless infinite scrolling using a buffer-based rendering system.
 - 🎯 **Dynamic Scaling**: Active products dynamically scale (1.25x) while inactive items shrink (0.75x) for focus.
 - 🎨 **GSAP Powered**: Ultra-smooth transitions and micro-animations for a premium feel.
-- 🔍 **Product Preview**: Detailed preview panel with glassmorphism effects and dynamic banner transitions.
-- 🖱️ **Interactive Controller**: Custom-built circular navigation with animated state transitions.
+- 🔍 **Product Preview**: Detailed preview panel with glassmorphism effects, **dynamic pricing**, and banner transitions.
+- 🖱️ **Interactive Controller**: Custom-built circular navigation with animated state transitions and an "X" toggle.
 - ⚡ **Optimized Performance**: Hardware-accelerated animations using `will-change` and efficient DOM recycling.
-- 📱 **Mobile Responsive**: Fully adaptive layout that scales beautifully across all devices.
+- 📱 **Mobile Responsive**: Fully adaptive layout with optimized typography and spacing for all devices.
 
 ---
 
@@ -51,8 +51,8 @@ An immersive, high-performance infinite product carousel built with **GSAP**, fe
    npm install
    ```
 
-3. **Product Images**:
-   Add your product images to `public/products/`. The files should follow the naming convention `product-1.png`, `product-2.png`, etc., as defined in `products.js`.
+3. **Product Configuration**:
+   The project comes pre-loaded with **12 high-quality clothing assets** in `public/products/`. You can customize them in `products.js`.
 
 4. **Run development server**:
    ```bash
@@ -72,7 +72,7 @@ An immersive, high-performance infinite product carousel built with **GSAP**, fe
 Danso-Infinite-Slider/
 ├── public/                 # Static assets
 │   ├── fonts/              # Project typography
-│   └── products/           # Product images (add here)
+│   └── products/           # Product images (12 assets included)
 ├── index.html              # Entry point
 ├── style.css               # Core design & animations
 ├── script.js               # Carousel logic & GSAP timelines

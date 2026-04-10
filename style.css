@@ -16,52 +16,52 @@
     --base-500: #000;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: "DM Sans";
     background: var(--base-100);
     overflow: hidden;
 }
 
-p{
+p {
     font-size: 0.85rem;
     font-weight: 500;
     line-height: 1;
 }
 
-.container{
+.container {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
-.nav{
+.nav {
     position: absolute;
     top: 0;
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding: 2rem;
     z-index: 2;
 }
 
-.nav p{
+.nav p {
     text-transform: uppercase;
     font-family: "DM Mono";
 }
 
-.product-name{
+.product-name {
     color: var(--base-200);
 }
 
-.gallery{
+.gallery {
     position: absolute;
     width: 100%;
     height: 100svh;
@@ -77,7 +77,7 @@ p{
     transform: translate(-50%, -50%);
 }
 
-.products li{
+.products li {
     position: absolute;
     width: 300px;
     height: 300px;
@@ -87,12 +87,12 @@ p{
     will-change: transform;
 }
 
-.products li img{
+.products li img {
     width: 250px;
     height: 250px;
 }
 
-.controller{
+.controller {
     position: relative;
     bottom: 2rem;
     left: 50%;
@@ -104,7 +104,7 @@ p{
     z-index: 10;
 }
 
-.controller-inner{
+.controller-inner {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -122,13 +122,13 @@ p{
     z-index: 1;
 }
 
-.close-btn{
+.close-icon {
     position: relative;
     width: 20px;
     height: 20px;
 }
 
-.close-btn span{
+.close-icon span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -142,11 +142,11 @@ p{
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.close-icon span:last-child{
+.close-icon span:last-child {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.controller-outer{
+.controller-outer {
     position: absolute;
     top: 0;
     left: 0;
@@ -159,7 +159,7 @@ p{
     z-index: -1;
 }
 
-.controller-label p{
+.controller-label p {
     position: absolute;
     top: 1rem;
     left: 50%;
@@ -170,7 +170,7 @@ p{
     will-change: opacity;
 }
 
-.nav-btn{
+.nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -180,11 +180,11 @@ p{
     cursor: pointer;
 }
 
-.nav-btn.prev{
+.nav-btn.prev {
     left: 1rem;
 }
 
-.nav-btn.next{
+.nav-btn.next {
     right: 1rem;
 }
 
@@ -193,7 +193,7 @@ p{
     pointer-events: none;
 }
 
-.product-banner{
+.product-banner {
     position: absolute;
     top: 0;
     left: 0;
@@ -204,14 +204,14 @@ p{
     will-change: opacity;
 }
 
-.product-banner img{
+.product-banner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transform: scale(1.25);
 }
 
-.product-preview{
+.product-preview {
     position: absolute;
     top: 47.5%;
     left: 50%;
@@ -228,30 +228,30 @@ p{
     z-index: 2;
 }
 
-.product-preview-info{
+.product-preview-info {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.product-preview-name p{
+.product-preview-name p {
     font-size: 0.95rem;
 }
 
-.product-preview-tag{
+.product-preview-tag {
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     background-color: var(--base-500);
     color: var(--base-100);
 }
 
-.product-preview-tag p{
+.product-preview-tag p {
     text-transform: uppercase;
     font-family: "DM Mono";
     font-size: 0.75rem;
 }
 
-.product-preview-img{
+.product-preview-img {
     width: 100%;
     aspect-ratio: 1;
     border-radius: 0.25rem;
@@ -259,13 +259,13 @@ p{
     overflow: hidden;
 }
 
-.product-preview-img img{
+.product-preview-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.product-url .btn{
+.product-url .btn {
     background-color: var(--base-500);
     display: flex;
     justify-content: center;
@@ -273,7 +273,7 @@ p{
     border-radius: 0.25rem;
 }
 
-.product-url .btn a{
+.product-url .btn a {
     display: block;
     padding: 1rem 0;
     text-decoration: none;
@@ -283,6 +283,5 @@ p{
 @media (max-width: 1000px) {
     .product-preview {
         width: calc(100% -2rem);
-    }    
+    }
 }
-

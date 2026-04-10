@@ -5,6 +5,7 @@ const productsContainer = document.querySelector(".products");
 const productName = document.querySelector(".product-name p");
 const productPreview = document.querySelector(".product-preview");
 const previewName = document.querySelector(".product-preview-name p");
+const previewPrice = document.querySelector(".product-preview-price p");
 const previewImg = document.querySelector(".product-preview-img img");
 const previewTag = document.querySelector(".product-preview-tag p");
 const previewUrl = document.querySelector(".product-url .btn a");
@@ -86,6 +87,7 @@ function updatePreviewContent() {
     previewImg.src = currentProduct.img;
     previewImg.alt = currentProduct.name;
     previewTag.textContent = currentProduct.tag;
+    previewPrice.textContent = `$${currentProduct.price}`;
     previewUrl.href = currentProduct.url;
     bannerImg.src = currentProduct.img;
     bannerImg.alt = currentProduct.name;
@@ -140,7 +142,7 @@ function animateSideItems(hide = false) {
 
     slideItems.forEach((item) => {
         const absIndex = Math.abs(item.relativeIndex);
-        if (absIndex === 1 || absIndex === 2) {
+        if (absIndex !== 0) {
             gsap.to(item.element, {
                 x: hide
                     ? item.relativeIndex * slideWidth * 1.5
@@ -154,7 +156,7 @@ function animateSideItems(hide = false) {
 
     if (activeSlide) {
         gsap.to(activeSlide.element, {
-            scale: hide ? 0.75 : 2.25,
+            scale: hide ? 0.75 : 1.25,
             opacity: hide ? 0 : 1,
             duration: 0.75,
             ease: "power3.inOut",
@@ -169,7 +171,7 @@ function animateControllerTransition(opening = false) {
         opacity: opening ? 0 : 1,
         duration: 0.2,
         ease: "power3.out",
-        display: opening ? 0 : 0.4,
+        pointerEvents: opening ? "none" : "auto",
     });
 
     gsap.to(controllerOuter, {
